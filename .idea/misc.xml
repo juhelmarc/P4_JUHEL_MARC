@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/marc/Documents/++OpenClassRoomsProjects/P4/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3828125" />
+        <entry key="..\:/Users/marc/Documents/++OpenClassRoomsProjects/P4/app/src/main/res/drawable/day_jeudi.xml" value="0.3828125" />
+        <entry key="..\:/Users/marc/Documents/++OpenClassRoomsProjects/P4/app/src/main/res/drawable/day_lundi.xml" value="0.3828125" />
+        <entry key="..\:/Users/marc/Documents/++OpenClassRoomsProjects/P4/app/src/main/res/drawable/day_mardi.xml" value="0.3828125" />
+        <entry key="..\:/Users/marc/Documents/++OpenClassRoomsProjects/P4/app/src/main/res/drawable/day_mercredi.xml" value="0.3828125" />
+        <entry key="..\:/Users/marc/Documents/++OpenClassRoomsProjects/P4/app/src/main/res/drawable/day_vendredi.xml" value="0.3828125" />
+        <entry key="..\:/Users/marc/Documents/++OpenClassRoomsProjects/P4/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.3828125" />
+        <entry key="..\:/Users/marc/Documents/++OpenClassRoomsProjects/P4/app/src/main/res/drawable/ic_baseline_calendar_today_24.xml" value="0.3828125" />
+        <entry key="..\:/Users/marc/Documents/++OpenClassRoomsProjects/P4/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.3828125" />
+        <entry key="..\:/Users/marc/Documents/++OpenClassRoomsProjects/P4/app/src/main/res/drawable/ic_baseline_filter_list_24.xml" value="0.3828125" />
+        <entry key="..\:/Users/marc/Documents/++OpenClassRoomsProjects/P4/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
+        <entry key="..\:/Users/marc/Documents/++OpenClassRoomsProjects/P4/app/src/main/res/layout-land/activity_booking.xml" value="0.22" />
+        <entry key="..\:/Users/marc/Documents/++OpenClassRoomsProjects/P4/app/src/main/res/layout-land/item_meeting.xml" value="0.15255731922398588" />
+        <entry key="..\:/Users/marc/Documents/++OpenClassRoomsProjects/P4/app/src/main/res/layout/activity_booking.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/marc/Documents/++OpenClassRoomsProjects/P4/app/src/main/res/layout/activity_meeting.xml" value="0.2015625" />
+        <entry key="..\:/Users/marc/Documents/++OpenClassRoomsProjects/P4/app/src/main/res/layout/item_meeting.xml" value="0.67" />
+        <entry key="..\:/Users/marc/Documents/++OpenClassRoomsProjects/P4/app/src/main/res/menu/menu_filter.xml" value="0.18177083333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
