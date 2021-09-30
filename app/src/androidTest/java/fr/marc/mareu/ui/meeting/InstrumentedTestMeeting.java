@@ -50,9 +50,6 @@ public class InstrumentedTestMeeting {
     private MeetingActivity mActivity;
     private static final int ITEMS_COUNT = 7;
 
-    //TODO : passer sur activityrule // tester une ou deux erreurs // et quand tout marche bien // tester les deux types filtres: environs 6 fonctions
-
-
     @Before
     public void setUp() {
         ActivityScenario<MeetingActivity> activityScenario = ActivityScenario.launch(MeetingActivity.class);
@@ -102,14 +99,14 @@ public class InstrumentedTestMeeting {
         onView(allOf(withId(R.id.subject), childAtPosition(childAtPosition(withId(R.id.cardview2), 0), 2)))
                 .perform(scrollTo(), replaceText("Test"), closeSoftKeyboard());
 
-
+        //EDIT ROOM
         onView(allOf(withId(R.id.room_spinner), childAtPosition(childAtPosition(withId(R.id.cardview2), 0), 4)))
                 .perform(scrollTo(), click());
 
         DataInteraction appCompatCheckedTextView = onData(anything()).inAdapterView(
                 childAtPosition(withClassName(is("android.widget.PopupWindow$PopupBackgroundView")), 0)).atPosition(1);
         appCompatCheckedTextView.perform(click());
-
+        //PRESS BUTTON BOOK
         ViewInteraction appCompatButton4 = onView(allOf(withId(R.id.book), withText("Book"),
                         childAtPosition(allOf(withId(R.id.constraintlayout), childAtPosition(withId(R.id.scrollview), 0)), 7)));
         appCompatButton4.perform(scrollTo(), click());

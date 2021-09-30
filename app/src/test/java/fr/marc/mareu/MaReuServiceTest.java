@@ -52,17 +52,6 @@ public class MaReuServiceTest {
         assertEquals(expectedMeetingList, meetingNotFiltered);
     }
 
-   // @Test
-   // public void getMeetingListFilteredWithSuccess() {
-   //     service.getMeetingList().get(0).setFiltered(true);
-   //     listMeeting.get(1).setFiltered(true);
-   //     List<Meeting> expectedFilteredMeetingList = Arrays.asList(listMeeting.get(0), listMeeting.get(1));
-//
-   //     List<Meeting> filteredMeetingList = service.getMeetingList(true);
-//
-   //     assertEquals(expectedFilteredMeetingList, filteredMeetingList);
-   // }
-
     @Test
     public void deleteMeetingShouldRemoveMeeting() {
         // 1 - Expected
@@ -140,7 +129,7 @@ public class MaReuServiceTest {
         // 3 - Verify
         assertEquals(expectedRoomList, listRoom);
     }
-//TODO : eviter de partager des variables entre les différents tests
+
     @Test
     public void getRoomNameListWithSuccess() {
         // 1 - Expected
@@ -155,7 +144,7 @@ public class MaReuServiceTest {
     }
 
     @Test
-    public void applyRoomFilterWithSuccess() {
+    public void applyAndGetRoomFilterWithSuccess() {
         // 1 - Expected
         List<Meeting> expectedMeetingListFilteredWithRoom = Arrays.asList(service.getMeetingList().get(0));
         // 2 - Test
@@ -165,7 +154,7 @@ public class MaReuServiceTest {
     }
 
     @Test
-    public void applyDateFilterWithSuccess() {
+    public void applyAndGetDateFilterWithSuccess() {
         // 1 - Expected
         String format = "MMM dd.yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format, Locale.FRANCE);
