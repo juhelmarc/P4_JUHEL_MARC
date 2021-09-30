@@ -4,6 +4,7 @@ import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static androidx.test.espresso.action.ViewActions.pressImeActionButton;
 import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
@@ -23,7 +24,6 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 
 import androidx.test.core.app.ActivityScenario;
-import androidx.test.espresso.DataInteraction;
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -93,19 +93,32 @@ public class InstrumentedTestMeeting {
         onView(withId(R.id.book) ).perform(scrollTo(),click());
 
         //EDIT MULTI AUTO COMPLETE
-        onView(withId(R.id.mail_autocomplete)).perform(scrollTo(), replaceText("alexandre@mareu.com, damien@mareu.com,"), closeSoftKeyboard());
-
-        //EDIT SUBJECT
-        onView(allOf(withId(R.id.subject), childAtPosition(childAtPosition(withId(R.id.cardview2), 0), 2)))
-                .perform(scrollTo(), replaceText("Test"), closeSoftKeyboard());
-
-        //EDIT ROOM
-        onView(allOf(withId(R.id.room_spinner), childAtPosition(childAtPosition(withId(R.id.cardview2), 0), 4)))
+        onView(allOf(withId(R.id.mail_autocomplete),
+                childAtPosition(childAtPosition(withClassName(is("android.widget.ScrollView")), 0), 0)))
                 .perform(scrollTo(), click());
 
-        DataInteraction appCompatCheckedTextView = onData(anything()).inAdapterView(
-                childAtPosition(withClassName(is("android.widget.PopupWindow$PopupBackgroundView")), 0)).atPosition(1);
-        appCompatCheckedTextView.perform(click());
+        onView(allOf(withId(R.id.mail_autocomplete),
+                childAtPosition(childAtPosition(withClassName(is("android.widget.ScrollView")), 0), 0)))
+                .perform(scrollTo(), replaceText("alexandre@mareu.com, dorine@mareu.com,"));
+
+        onView(allOf(withId(R.id.mail_autocomplete), withText("alexandre@mareu.com, dorine@mareu.com,"),
+                childAtPosition(childAtPosition(withClassName(is("android.widget.ScrollView")), 0), 0), isDisplayed()))
+                .perform(closeSoftKeyboard());
+        //EDIT SUBJECT
+        onView(allOf(withId(R.id.subject),
+                childAtPosition(childAtPosition(withClassName(is("android.widget.ScrollView")), 0), 2)))
+                .perform(scrollTo(), replaceText("test"), closeSoftKeyboard());
+
+        onView(allOf(withId(R.id.subject), withText("test"),
+                childAtPosition(childAtPosition(withClassName(is("android.widget.ScrollView")), 0), 2)))
+                .perform(pressImeActionButton());
+        //EDIT ROOM
+        onView(allOf(withId(R.id.room_spinner),
+                childAtPosition(childAtPosition(withClassName(is("android.widget.ScrollView")), 0), 4)))
+                .perform(scrollTo(), click());
+
+        onData(anything()).inAdapterView(childAtPosition(withClassName(is("android.widget.PopupWindow$PopupBackgroundView")), 0)).atPosition(1)
+                .perform(click());
         //PRESS BUTTON BOOK
         ViewInteraction appCompatButton4 = onView(allOf(withId(R.id.book), withText("Book"),
                         childAtPosition(allOf(withId(R.id.constraintlayout), childAtPosition(withId(R.id.scrollview), 0)), 7)));
