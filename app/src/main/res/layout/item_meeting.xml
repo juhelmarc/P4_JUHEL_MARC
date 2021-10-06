@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/day"
-        android:layout_width="@dimen/item_image_layout_width"
-        android:layout_height="@dimen/item_image_layout_height"
+        android:layout_width="@dimen/item_image_layout_width_height"
+        android:layout_height="@dimen/item_image_layout_width_height"
         android:layout_marginStart="@dimen/fab_margin"
         android:layout_marginTop="@dimen/item_image_margin_top"
         android:layout_marginBottom="@dimen/item_image_margin_top"

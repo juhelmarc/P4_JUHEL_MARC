@@ -27,6 +27,8 @@ public class DummyMeetingApiService implements MeetingApiService {
     @Override
     public void deleteMeeting(Meeting meeting) {
         meetingList.remove(meeting);
+        if(meetingListFiltered != null)
+        meetingListFiltered.remove(meeting);
     }
 
     @Override
@@ -100,7 +102,7 @@ public class DummyMeetingApiService implements MeetingApiService {
         String format = "MMM dd.yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format, Locale.FRANCE);
         meetingListFiltered = new ArrayList<>();
-
+//TODO : retirer setFiltered(true)
         for(Meeting meeting : meetingList)
             if(simpleDateFormat.format( meeting.getDate().getTime() ).equals( formatDate )) {
             //if(simpleDateFormat.format( meeting.getDate().getTime() ).equals( simpleDateFormat.format( date.getTime() ) )) {

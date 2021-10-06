@@ -34,10 +34,7 @@ import fr.marc.mareu.model.User;
 public class MaReuServiceTest {
 
     private MeetingApiService service;
-    //TODO : dégager toute les variables
-    // 1- expected
-    // 2- appeler la fonction
-    // 3- verrifier
+
     @Before
     public void setup() {
         service = DI.getNewInstanceApiService();

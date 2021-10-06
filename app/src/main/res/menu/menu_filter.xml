@@ -28,7 +28,7 @@
                 android:id="@+id/clear_filter"
                 android:title="@string/clear_filter"
                 app:showAsAction="always" />
-
+<!-- regarder les showAsAction -->
 
         </menu>
     </item>

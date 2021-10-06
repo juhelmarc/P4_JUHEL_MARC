@@ -40,7 +40,7 @@ import fr.marc.mareu.dataservice.MeetingApiService;
 import fr.marc.mareu.model.Meeting;
 import fr.marc.mareu.model.Room;
 import fr.marc.mareu.model.User;
-
+//TODO : XML / ACTIVITY / SERVICE / MODEL / TESTS ALLER A L'ESSENTIEL
 public class BookingActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     @BindView(R.id.datePicker)

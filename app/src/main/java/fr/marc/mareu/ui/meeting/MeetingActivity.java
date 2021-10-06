@@ -166,12 +166,12 @@ public class MeetingActivity extends AppCompatActivity    {
    @Subscribe
    public void onDeleteMeetingEvent(DeleteMeetingEvent event) {
        mApiService.deleteMeeting(event.meeting);
-       initRecyclerview( isFiltered );
+       initRecyclerview( isFiltered);
    }
       @Override
    public void onResume() {
        super.onResume();
-       initRecyclerview(isFiltered);
+       initRecyclerview(false);
    }
       @Override
    public void onStart() {
@@ -183,6 +183,7 @@ public class MeetingActivity extends AppCompatActivity    {
    public void onStop() {
        super.onStop();
        EventBus.getDefault().unregister( this );
+
    }
 
 

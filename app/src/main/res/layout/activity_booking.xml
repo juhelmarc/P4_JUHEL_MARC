@@ -14,7 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintlayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
 
         >
 
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/title_margin"
-            android:layout_marginBottom="@dimen/edit_text_margin"
+            android:layout_marginBottom="@dimen/fab_margin"
             android:gravity="center"
             android:text="@string/booking_activity"
             android:textColor="@color/white"
@@ -46,10 +46,10 @@
             android:id="@+id/cardview"
             android:layout_width="match_parent"
             android:layout_height="@dimen/cardview_layout_height"
-            android:layout_marginStart="@dimen/edit_text_margin"
-            android:layout_marginTop="@dimen/cardview_margin_top_bottom"
-            android:layout_marginEnd="@dimen/edit_text_margin"
-            android:layout_marginBottom="@dimen/cardview_margin_top_bottom"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/item_image_margin_top"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginBottom="@dimen/item_image_margin_top"
             app:cardCornerRadius="5dp"
             app:layout_anchorGravity="center"
             app:layout_constraintEnd_toEndOf="parent"
@@ -58,32 +58,33 @@
             app:layout_constraintTop_toBottomOf="@+id/textView">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="395dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="16dp">
 
                 <EditText
                     android:id="@+id/datePicker"
-                    android:layout_width="@dimen/edit_text_width"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/divider_margin"
-                    android:layout_marginTop="@dimen/edit_text_margin"
-                    android:gravity="left"
+                    android:layout_marginTop="@dimen/fab_margin"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="start"
                     android:hint="@string/chose_date"
                     android:inputType="date"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/text_size"
-                    android:clickable="true"
-                    android:focusable="true"
                     app:layout_constraintStart_toEndOf="@+id/text1"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="TouchTargetSizeCheck" />
 
 
                 <TextView
                     android:id="@+id/text1"
                     android:layout_width="@dimen/text_view_width"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/edit_text_margin"
+                    android:layout_marginStart="@dimen/fab_margin"
                     android:text="@string/Chose_a_date"
                     android:textSize="@dimen/text_size"
                     app:layout_constraintBottom_toBottomOf="@+id/datePicker"
@@ -92,23 +93,24 @@
 
                 <EditText
                     android:id="@+id/hour"
-                    android:layout_width="@dimen/edit_text_width"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/divider_margin"
-                    android:layout_marginTop="@dimen/edit_text_margin"
+                    android:layout_marginTop="@dimen/fab_margin"
                     android:gravity="left"
                     android:hint="@string/chose_hour"
                     android:inputType="datetime"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/text_size"
                     app:layout_constraintStart_toEndOf="@+id/text2"
-                    app:layout_constraintTop_toBottomOf="@+id/datePicker" />
+                    app:layout_constraintTop_toBottomOf="@+id/datePicker"
+                    tools:ignore="TouchTargetSizeCheck" />
 
                 <TextView
                     android:id="@+id/text2"
                     android:layout_width="@dimen/text_view_width"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/edit_text_margin"
+                    android:layout_marginStart="@dimen/fab_margin"
                     android:text="@string/Meeting_start"
                     android:textSize="@dimen/text_size"
                     app:layout_constraintBottom_toBottomOf="@+id/hour"
@@ -117,24 +119,25 @@
 
                 <EditText
                     android:id="@+id/end_hour"
-                    android:layout_width="@dimen/edit_text_width"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/divider_margin"
-                    android:layout_marginTop="@dimen/edit_text_margin"
+                    android:layout_marginTop="@dimen/fab_margin"
                     android:gravity="left"
                     android:hint="@string/chose_duration"
                     android:inputType="datetime"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/text_size"
                     app:layout_constraintStart_toEndOf="@+id/text3"
-                    app:layout_constraintTop_toBottomOf="@+id/hour" />
+                    app:layout_constraintTop_toBottomOf="@+id/hour"
+                    tools:ignore="TouchTargetSizeCheck" />
 
 
                 <TextView
                     android:id="@+id/text3"
                     android:layout_width="@dimen/text_view_width"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/edit_text_margin"
+                    android:layout_marginStart="@dimen/fab_margin"
                     android:text="@string/duration_meeting"
                     android:textSize="@dimen/text_size"
                     app:layout_constraintBottom_toBottomOf="@+id/end_hour"
@@ -160,9 +163,9 @@
                 android:id="@+id/resum_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/edit_text_margin"
-                android:layout_marginTop="@dimen/edit_text_margin"
-                android:layout_marginEnd="@dimen/edit_text_margin"
+                android:layout_marginStart="@dimen/fab_margin"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:layout_marginEnd="@dimen/fab_margin"
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textColor="@color/white"
@@ -186,10 +189,10 @@
                 android:id="@+id/cardview2"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/cardview_layout_height"
-                android:layout_marginStart="@dimen/edit_text_margin"
-                android:layout_marginTop="@dimen/cardview_margin_top_bottom"
-                android:layout_marginEnd="@dimen/edit_text_margin"
-                android:layout_marginBottom="@dimen/cardview_margin_top_bottom"
+                android:layout_marginStart="@dimen/fab_margin"
+                android:layout_marginTop="@dimen/item_image_margin_top"
+                android:layout_marginEnd="@dimen/fab_margin"
+                android:layout_marginBottom="@dimen/item_image_margin_top"
                 app:cardCornerRadius="5dp"
                 app:layout_anchorGravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -206,14 +209,14 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="@dimen/edit_text_margin">
+                        android:padding="@dimen/fab_margin">
 
                         <MultiAutoCompleteTextView
                             android:id="@+id/mail_autocomplete"
                             android:layout_width="@dimen/edit_text_width_email"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/divider_margin"
-                            android:layout_marginTop="@dimen/edit_text_margin"
+                            android:layout_marginTop="@dimen/fab_margin"
                             android:fadeScrollbars="false"
                             android:gravity="left"
                             android:hint="@string/chose_mail"
@@ -223,13 +226,13 @@
                             android:textSize="@dimen/text_size"
                             app:layout_constraintStart_toEndOf="@+id/text4"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:ignore="LabelFor" />
+                            tools:ignore="LabelFor,TouchTargetSizeCheck" />
 
                         <TextView
                             android:id="@+id/text4"
-                            android:layout_width="@dimen/text_view_width_email"
+                            android:layout_width="@dimen/text_view_width"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/edit_text_margin"
+                            android:layout_marginStart="@dimen/fab_margin"
                             android:text="@string/mail_participant"
                             android:textSize="@dimen/text_size"
                             app:layout_constraintBottom_toBottomOf="@+id/mail_autocomplete"
@@ -239,22 +242,23 @@
 
                         <EditText
                             android:id="@+id/subject"
-                            android:layout_width="@dimen/edit_text_width"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/divider_margin"
-                            android:layout_marginTop="@dimen/edit_text_margin"
+                            android:layout_marginTop="@dimen/fab_margin"
                             android:gravity="left"
                             android:hint="@string/type_subject"
                             android:inputType="text"
                             android:textColor="@color/gray"
                             android:textSize="@dimen/text_size"
                             app:layout_constraintStart_toEndOf="@+id/text5"
-                            app:layout_constraintTop_toBottomOf="@+id/mail_autocomplete" />
+                            app:layout_constraintTop_toBottomOf="@+id/mail_autocomplete"
+                            tools:ignore="TouchTargetSizeCheck" />
                         <TextView
                             android:id="@+id/text5"
                             android:layout_width="@dimen/text_view_width"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/edit_text_margin"
+                            android:layout_marginStart="@dimen/fab_margin"
                             android:text="@string/subject"
                             android:textSize="@dimen/text_size"
                             app:layout_constraintBottom_toBottomOf="@+id/subject"
@@ -264,21 +268,21 @@
 
                         <Spinner
                             android:id="@+id/room_spinner"
-                            android:layout_width="@dimen/edit_text_width"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/divider_margin"
-                            android:layout_marginTop="@dimen/edit_text_margin"
-                            android:gravity="left"
+                            android:layout_marginTop="@dimen/fab_margin"
+                            android:gravity="start"
                             android:textColor="@color/gray"
                             app:layout_constraintStart_toEndOf="@+id/text6"
                             app:layout_constraintTop_toBottomOf="@+id/subject"
-                            tools:ignore="LabelFor" />
+                            tools:ignore="LabelFor,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
                         <TextView
                             android:id="@+id/text6"
                             android:layout_width="@dimen/text_view_width"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/edit_text_margin"
+                            android:layout_marginStart="@dimen/fab_margin"
                             android:text="@string/chose_the_room"
                             android:textSize="@dimen/text_size"
                             app:layout_constraintBottom_toBottomOf="@+id/room_spinner"

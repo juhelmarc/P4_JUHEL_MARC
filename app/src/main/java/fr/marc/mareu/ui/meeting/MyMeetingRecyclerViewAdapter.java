@@ -1,14 +1,21 @@
 package fr.marc.mareu.ui.meeting;
 
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
+import androidx.recyclerview.widget.RecyclerView;
+
 import org.greenrobot.eventbus.EventBus;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -17,12 +24,6 @@ import fr.marc.mareu.R;
 import fr.marc.mareu.dataservice.MeetingApiService;
 import fr.marc.mareu.events.DeleteMeetingEvent;
 import fr.marc.mareu.model.Meeting;
-
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
 
 
 public class MyMeetingRecyclerViewAdapter extends RecyclerView.Adapter<MyMeetingRecyclerViewAdapter.ViewHolder> {
@@ -46,6 +47,7 @@ public class MyMeetingRecyclerViewAdapter extends RecyclerView.Adapter<MyMeeting
         return new ViewHolder( view );
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         Meeting meeting = mMeetings.get( position );
@@ -53,7 +55,10 @@ public class MyMeetingRecyclerViewAdapter extends RecyclerView.Adapter<MyMeeting
         date = meeting.getDate();
         endDate = meeting.getEndDate();
         String format = "u/kk/mm";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format, Locale.FRANCE);
+        SimpleDateFormat simpleDateFormat = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            simpleDateFormat = new SimpleDateFormat(format, Locale.FRANCE);
+        }
         String formattedDate = simpleDateFormat.format(date);
         String [] splitDate = formattedDate.split("/");
         day = Integer.parseInt( splitDate[0] );
