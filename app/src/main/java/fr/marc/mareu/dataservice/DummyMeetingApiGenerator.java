@@ -32,6 +32,7 @@ public abstract class DummyMeetingApiGenerator {
             new User ("Clément" , "clément@mareu.com"),
             new User ("Clémentine" , "clémentine@mareu.com"),
             new User ("Damien" , "damien@mareu.com"),
+            new User ("Dorine" , "dorine@mareu.com"),
             new User ("Dorine" , "dorine@mareu.com")
     );
 

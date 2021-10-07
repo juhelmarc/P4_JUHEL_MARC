@@ -116,7 +116,7 @@ public class MeetingActivity extends AppCompatActivity    {
 
                dateFilter = formatDate( calendar.getTimeInMillis());
                mMeetingListFiltered = mApiService.applyDateFilter( dateFilter ) ;
-               Toast.makeText( getApplicationContext(), "taille liste = " + mMeetingListFiltered.size(), Toast.LENGTH_SHORT ).show();
+               Toast.makeText( getApplicationContext(), getApplicationContext().getString(R.string.taille_liste) + mMeetingListFiltered.size(), Toast.LENGTH_SHORT ).show();
                isFiltered = true;
                initRecyclerview( true );
            }
@@ -128,18 +128,18 @@ public class MeetingActivity extends AppCompatActivity    {
    private void initRoomPicker() {
        roomList = mApiService.getRoomNameList().toArray( new String[0] );
        AlertDialog.Builder builder = new AlertDialog.Builder( this );
-       builder.setTitle( "Chose a room" )
+       builder.setTitle( getApplicationContext().getString(R.string.chose_a_room ))
                .setSingleChoiceItems( roomList, -1, new DialogInterface.OnClickListener() {
                    @Override
                    public void onClick(DialogInterface dialog, int which) {
                        mMeetingListFiltered = mApiService.applyRoomFilter( mApiService.getRoomList().get(which) );
                        dialog.dismiss();
-                       Toast.makeText( getApplicationContext(), "taille liste = " + mMeetingListFiltered.size(), Toast.LENGTH_SHORT ).show();
+                       Toast.makeText( getApplicationContext(), getApplicationContext().getString(R.string.taille_liste) + mMeetingListFiltered.size(), Toast.LENGTH_SHORT ).show();
                        isFiltered = true;
                        initRecyclerview( true );
                        dialog.dismiss();
                    }
-               } ).setNegativeButton( "Cancel", new DialogInterface.OnClickListener() {
+               } ).setNegativeButton( R.string.cancel, new DialogInterface.OnClickListener() {
            @Override
            public void onClick(DialogInterface dialog, int which) {
                dialog.dismiss();

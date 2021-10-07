@@ -53,7 +53,7 @@ public class DummyMeetingApiService implements MeetingApiService {
     @Override
     public List<User> getUserListInThisMeeting(String emailString) {
         List<User> userInMeeting = new ArrayList<>();
-        List<String> emailList = Arrays.asList( emailString.replace(",", " ").split( " " ) );
+        List<String> emailList = Arrays.asList( emailString.replace(",", " ") .split( " " ) );
         for (String email : emailList) {
             for (User user : userList) {
                 if (email.equals( user.geteMail() )) {
@@ -87,10 +87,10 @@ public class DummyMeetingApiService implements MeetingApiService {
         if(room != null) {
             for (Meeting meeting : meetingList) {
                 if(meeting.getRoom().getId() == room.getId()) {
-                    meeting.setFiltered( true );
+
                     meetingListFiltered.add(meeting);
                 } else {
-                    meeting.setFiltered( false );
+
                 }
             }
         }
@@ -102,14 +102,12 @@ public class DummyMeetingApiService implements MeetingApiService {
         String format = "MMM dd.yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format, Locale.FRANCE);
         meetingListFiltered = new ArrayList<>();
-//TODO : retirer setFiltered(true)
+
         for(Meeting meeting : meetingList)
             if(simpleDateFormat.format( meeting.getDate().getTime() ).equals( formatDate )) {
-            //if(simpleDateFormat.format( meeting.getDate().getTime() ).equals( simpleDateFormat.format( date.getTime() ) )) {
-               meeting.setFiltered( true );
                meetingListFiltered.add(meeting);
             } else {
-                meeting.setFiltered(false);
+
             }
             return meetingListFiltered;
     }

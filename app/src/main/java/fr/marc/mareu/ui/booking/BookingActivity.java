@@ -129,7 +129,6 @@ public class BookingActivity extends AppCompatActivity implements AdapterView.On
 
     public void initMeetingRoomSpinner () {
         List<String> meetingRoomList = mApiService.getRoomNameList();
-        //meetingRoomList = new String[]{"Chose room", "Meeting room A", "Meeting room B", "Meeting room C", "Meeting room D", "Meeting room E", "Meeting room F", "Meeting room G", "Meeting room H", "Meeting room I", "Meeting room J"};
 
         ArrayAdapter meetingRoomListAdapter = new ArrayAdapter( this, android.R.layout.simple_spinner_item, meetingRoomList);
         meetingRoomListAdapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
@@ -186,7 +185,6 @@ public class BookingActivity extends AppCompatActivity implements AdapterView.On
             public void afterTextChanged(Editable s) {
                 dateEdited = true;
 
-                //initDuration( calendarEndTime, calendar );
             }
         } );
 
@@ -313,19 +311,19 @@ public class BookingActivity extends AppCompatActivity implements AdapterView.On
             Toast.makeText( this, getApplicationContext().getString( R.string.mail_not_eddited ), Toast.LENGTH_SHORT ).show();
         } else if(userListPicked == null) {
             mMail.requestFocus();
-            Toast.makeText( this, "You have to select existing user", Toast.LENGTH_SHORT ).show();
+            Toast.makeText( this, getApplicationContext().getString(R.string.select_existing_user), Toast.LENGTH_SHORT ).show();
         } else if (!subjectEdited) {
             mSubject.requestFocus();
             Toast.makeText(this, getApplicationContext().getString(R.string.subject_not_eddited), Toast.LENGTH_SHORT).show();
         } else if (endDatePickedMilli - startDatePickedMilli <= 0) {
             mEndDate.requestFocus();
             Toast.makeText( this, getApplicationContext().getString(R.string.later_end_date_than_start_date), Toast.LENGTH_SHORT ).show();
-        } else if (mMeetingRoom.getSelectedItem().toString().equals("Chose room")) {
+        } else if (mMeetingRoom.getSelectedItem().toString().equals(getApplicationContext().getString(R.string.chose_room))) {
             mMeetingRoom.requestFocus();
             Toast.makeText( this, getApplicationContext().getString(R.string.meeting_room_not_eddited), Toast.LENGTH_SHORT ).show();
         }
         else if (!freeRoomCrenel) {
-            Toast.makeText( this, "Pick an other room", Toast.LENGTH_SHORT ).show();
+            Toast.makeText( this, getApplicationContext().getString(R.string.pick_other_room), Toast.LENGTH_SHORT ).show();
             mMeetingRoom.requestFocus();
         }
          else {
@@ -337,7 +335,7 @@ public class BookingActivity extends AppCompatActivity implements AdapterView.On
                     userListPicked, false
             );
             mApiService.bookMeeting( meetingToBook );
-            Toast.makeText( this,    " Date : " + formatDate(startDatePickedMilli) + " ; Start : " + formatHour( startDatePickedMilli ) + " ; End : " + formatHour( endDatePickedMilli ), Toast.LENGTH_SHORT ).show();
+            Toast.makeText( this,    getApplicationContext().getString(R.string.date)+ formatDate(startDatePickedMilli) + getApplicationContext().getString(R.string.start) + formatHour( startDatePickedMilli ) + getApplicationContext().getString(R.string.end) + formatHour( endDatePickedMilli ), Toast.LENGTH_SHORT ).show();
             finish();
       }
     }
@@ -365,7 +363,7 @@ public class BookingActivity extends AppCompatActivity implements AdapterView.On
         if (duration <= 0) {
             textDuration = getApplicationContext().getString( R.string.error );
         }
-        mResumDate.setText( "Date : " + datePickedFormated + " Start : " + timePickedFormated + " End : " + endTimePickedFormated + "           Time : " + textDuration );
+        mResumDate.setText( getApplicationContext().getString(R.string.date) + datePickedFormated + getApplicationContext().getString(R.string.start) + timePickedFormated + getApplicationContext().getString(R.string.end) + endTimePickedFormated + getApplicationContext().getString(R.string.time) + textDuration );
     }
 
     @Override

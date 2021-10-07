@@ -31,8 +31,17 @@
     <string name="clear_filter">Clear filter</string>
     <string name="chose_a_date">Chose a date</string>
     <string name="chose_meeting_room">Chose meeting room</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="date"> Date : </string>
+    <string name="start"> ; Start : </string>
+    <string name="end"> ; End : </string>
+    <string name="pick_other_room">Pick an other room</string>
+    <string name="chose_room">Chose room</string>
+    <string name="select_existing_user">You have to select existing user</string>
+    <string name="cancel">Cancel</string>
+    <string name="taille_liste">\"taille liste = \"</string>
+    <string name="chose_a_room">Chose a room</string>
+    <string name="time">\"           Time : \"</string>
 
 
 </resources>
